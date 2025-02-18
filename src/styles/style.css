@@ -1,0 +1,13 @@
+.clocks-div{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+.title-main{
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+main{
+ padding: 15px;
+}
