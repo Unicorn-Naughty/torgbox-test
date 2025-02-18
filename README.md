@@ -5,7 +5,7 @@
 # Stack
 
   1. React
-  2. Redux Tool kit
+  2. Redux Toolkit
   3. Для сетевых запросов использвал fetch
   4. Для отрисовки часов использовал canvas
 
