@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 interface ClockProps {
   timezoneOffset: number;
@@ -6,6 +6,7 @@ interface ClockProps {
 
 const Clock: React.FC<ClockProps> = ({ timezoneOffset }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [currentTime, setCurrentTime] = useState('');
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -18,6 +19,9 @@ const Clock: React.FC<ClockProps> = ({ timezoneOffset }) => {
       const seconds = localTime.getSeconds();
       const minutes = localTime.getMinutes();
       const hours = localTime.getHours();
+
+      // Update digital time display
+      setCurrentTime(localTime.toLocaleTimeString('en-US', { hour12: false }));
 
       context.clearRect(0, 0, 200, 200);
       context.beginPath();
@@ -48,7 +52,14 @@ const Clock: React.FC<ClockProps> = ({ timezoneOffset }) => {
     return () => clearInterval(interval);
   }, [timezoneOffset]);
 
-  return <canvas ref={canvasRef} width={200} height={200} />;
+  return (
+    <div>
+      <canvas ref={canvasRef} width={200} height={200} />
+      <div style={{ textAlign: 'center', marginTop: '10px', fontSize: '20px' }}>
+        {currentTime}
+      </div>
+    </div>
+  );
 };
 
 export default Clock;
