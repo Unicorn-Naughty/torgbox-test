@@ -14,7 +14,7 @@
 
 1. Клонирование репозитория 
 
-```git clone https://github.com/Unicorn-Naughty/ind-test.git```
+```git clone https://github.com/Unicorn-Naughty/torgbox-test.git```
 
 2. Переход в директорию torgbox-test
 
